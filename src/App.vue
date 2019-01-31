@@ -6,16 +6,23 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import FooterGuide from './components/FooterGuide/FooterGuide.vue'
+// import { reqFoodCategorys } from './api'
 
 export default {
-  async mounted() {
-    const result = await reqFoodTypes()
-    console.log(result)
+  mounted() {
+    //this.$store.dispatch('getAddress')
+    this.getAddress()
+  },
+
+  methods: {
+    //显示数据要两种状态:更新状态(下面)和读状态(MSite.vue)
+    ...mapActions(['getAddress'])
   },
   components: {
     FooterGuide
-  }
+  },
 }
 </script>
 
